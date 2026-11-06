@@ -1,4 +1,3 @@
-cat > README.md <<'EOF'
 # Local Kubernetes Application Deployment and Recovery
 
 ## Project Description
