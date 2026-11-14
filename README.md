@@ -1,55 +1,79 @@
 # Local Kubernetes Application Deployment and Recovery
 
 ## Project Description
-This project demonstrates how to deploy and manage a web application locally using Kubernetes and Minikube.
+This project demonstrates the deployment, management, scaling, and recovery of a web application using Kubernetes and Minikube in a local environment. Nginx is used as the sample web application.
 
 ## Objectives
-- Deploy an Nginx web application.
-- Manage application Pods using Kubernetes.
-- Expose the application using NodePort Service.
+- Deploy a web application using Kubernetes.
+- Create and manage Kubernetes Pods.
+- Expose the application using a NodePort Service.
 - Demonstrate automatic Pod recovery.
 - Perform application scaling.
+- Understand container orchestration using Kubernetes.
 
 ## Technologies Used
-- Docker
-- Kubernetes
-- Minikube
-- kubectl
-- Nginx
-- Ubuntu (WSL)
-- Git
-- GitHub
+- Programming Language: YAML
+- Containerization: Docker
+- Orchestration: Kubernetes
+- Local Cluster: Minikube
+- Command-Line Tool: kubectl
+- Web Server: Nginx
+- Operating Environment: Ubuntu (WSL)
+- Version Control: Git
+- Repository Hosting: GitHub
+
+## Project Architecture
+1. Nginx runs inside a Docker container.
+2. Kubernetes Deployment manages the application Pods.
+3. Minikube provides the local Kubernetes cluster.
+4. Kubernetes Service exposes the application through NodePort.
+5. Kubernetes maintains the required number of replicas and replaces deleted Pods.
 
 ## Project Files
-- deployment.yaml - Application deployment configuration.
-- service.yaml - Service configuration.
+- deployment.yaml - Defines the application Deployment and replicas.
+- service.yaml - Defines the NodePort Service.
+- screenshots/ - Contains project implementation and testing screenshots.
 - README.md - Project documentation.
 
-## Implementation
+## Implementation Methodology
 1. Installed and configured Docker.
-2. Started the Minikube cluster.
-3. Deployed the Nginx application.
-4. Created a NodePort Service.
-5. Accessed the application through a browser.
-6. Tested automatic Pod recovery.
-7. Scaled the application from 1 Pod to 2 Pods.
-8. Scaled down from 2 Pods to 1 Pod.
-9. Uploaded the project to GitHub.
+2. Installed and configured Minikube.
+3. Started the local Kubernetes cluster.
+4. Created the Nginx Deployment.
+5. Configured the NodePort Service.
+6. Accessed the Nginx application through a web browser.
+7. Scaled the application to three replicas.
+8. Deleted a running Pod to test automatic recovery.
+9. Verified that Kubernetes created a replacement Pod.
+10. Captured screenshots and uploaded the project to GitHub.
 
 ## Testing and Results
 
-### Automatic Pod Recovery
-A running Nginx Pod was deleted manually. Kubernetes automatically created a replacement Pod.
+### Application Deployment
+The Nginx application was successfully deployed using Kubernetes.
 
-**Result:** Pod recovery was successful.
+**Result:** Application Pods reached the Running state.
 
 ### Application Scaling
-The application was scaled from 1 Pod to 2 Pods and then back to 1 Pod.
+The Deployment was scaled to three replicas.
 
-**Result:** Scaling was successful.
+**Result:** All three Pods were running successfully (3/3 Ready).
+
+### Automatic Pod Recovery
+One running Pod was manually deleted to test Kubernetes recovery.
+
+**Result:** Kubernetes automatically created a replacement Pod, and all three replicas returned to the Running state.
+
+### Service Verification
+The application was exposed using a NodePort Service on port 31818.
+
+**Result:** The Nginx welcome page was successfully accessed through a web browser.
 
 ## Expected Outcome
-A successfully deployed Nginx application with Kubernetes deployment, service management, automatic recovery and scaling.
+A successfully deployed and accessible Nginx application with Kubernetes-based Pod management, automatic recovery, and application scaling.
 
 ## Conclusion
-This project provides practical knowledge of Kubernetes application deployment and management. It demonstrates how Kubernetes can automatically recover Pods and manage application scaling.
+This project provides practical knowledge of container orchestration and Kubernetes application management. It demonstrates how Kubernetes Deployments maintain the desired number of replicas, automatically replace failed or deleted Pods, and expose applications through Services.
+
+## Screenshots
+Project implementation and testing screenshots are available in the screenshots folder.
